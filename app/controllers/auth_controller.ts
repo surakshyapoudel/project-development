@@ -5,7 +5,8 @@ import { safeError } from '#helpers/safeError'
 
 export default class AuthController {
 
-    async index({ inertia }: HttpContext) {
+    async index({ inertia , auth ,response}: HttpContext) {
+
         return inertia.render('auth/login')
     }
 

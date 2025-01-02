@@ -22,7 +22,7 @@ function Create() {
                 e.preventDefault()
                 form.post('/admin/gallery', {
                     onSuccess: () => {
-                        form.reset()
+                    
                     }
                 })
             }}>

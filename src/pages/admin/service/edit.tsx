@@ -27,7 +27,7 @@ function Edit({ service }: {
                 e.preventDefault()
                 form.put('/admin/service/' + service.id, {
                     onSuccess: () => {
-                        form.reset()
+                      
                     }
                 })
             }}>

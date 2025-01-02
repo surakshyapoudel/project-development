@@ -69,9 +69,9 @@ export default class ArticlesController {
         if(image){
             const imageName = `${cuid()}.${image.extname}`
             await image.move(app.makePath('storage/uploads'), {
-                name: "/uploads/" + imageName
+                name: imageName
             })
-            article.image = imageName
+            article.image = "/uploads/" + imageName
         }
 
         article.merge(data)

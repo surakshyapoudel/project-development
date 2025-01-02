@@ -31,7 +31,7 @@ export default class ServicesController {
 
         const id = Number(request.param('id'))
         const service = await Service.findOrFail(id)
-        return inertia.render('admin/service/show', {
+        return inertia.render('service/show', {
             service
         })
     }

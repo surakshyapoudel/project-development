@@ -26,9 +26,6 @@ function Create() {
             <form className="gap-6 space-y-6 mt-6" onSubmit={(e) => {
                 e.preventDefault()
                 form.post('/admin/event', {
-                    onSuccess: () => {
-                        form.reset()
-                    }
                 })
             }}>
                 <TextInput

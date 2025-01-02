@@ -2,6 +2,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns"; // Optional for date formatting
 import {Link} from "@inertiajs/react";
+import Article from "#models/article";
+import { formatDateTime } from "@/lib/utils";
 
 interface ArticleCardProps {
   id: number;
@@ -12,9 +14,9 @@ interface ArticleCardProps {
   createdAt: string; // Pass as ISO string
 }
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ id, title, description, image, author, createdAt }) => {
+const ArticleCard: React.FC<Article> = ({ id, title, description, image, author, createdAt }) => {
   return (
-    <Card className="w-full max-w-md shadow-lg hover:shadow-xl transition-shadow">
+    <Card className="w-full shadow-lg hover:shadow-xl transition-shadow">
       {/* Image */}
       <img
         src={image}
@@ -25,7 +27,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ id, title, description, image
       <CardHeader>
         <CardTitle className="text-lg font-semibold">{title}</CardTitle>
         <CardDescription className="text-sm text-gray-500">
-          By {author} • {format(new Date(createdAt), "MMM dd, yyyy")}
+          By {author} • {formatDateTime(createdAt)}
         </CardDescription>
       </CardHeader>
       <CardContent>

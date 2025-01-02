@@ -19,7 +19,7 @@ import {
     className?: string
   }) => {
     return (
-      <Pagination className={cn('my-4 mx-0', className)}>
+      <Pagination className={cn('my-4 pt-10 mx-0', className)}>
         <PaginationContent className="m-0">
           <PaginationItem className="list-none">
             <PaginationPrevious

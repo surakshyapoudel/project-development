@@ -27,7 +27,7 @@ export default function HeroSection() {
         {/* Right Content */}
         <div className="w-full lg:w-1/2">
           <img
-            src="/aihero.svg" // Replace with your image path
+            src="/aihero.svg" 
             alt="AI Illustration"
             className="w-full h-auto"
           />

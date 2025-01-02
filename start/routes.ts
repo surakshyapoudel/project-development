@@ -29,21 +29,40 @@ const openai = new OpenAI({
 
 
 import env from './env.js'
+import Service from '#models/service'
+import Article from '#models/article'
+import Gallery from '#models/gallery'
 
 router.post('/api/chat', async ({ request }) => {
 
   const body = request.body() as OpenAI.Chat.Completions.ChatCompletionMessageParam[]
   const events = await Event.all()
+  const services = await Service.all()
+  const articles = await Article.all()
 
   const res = await openai.chat.completions.create({
     model: "gemini-1.5-flash",
     messages: [
       {
-        role: "system", content: `Here are the list of events : 
-        
-        ${JSON.stringify(events)})
+        role: "system", content: `
 
-        You are an help desk agent. Please help the user with their query`   },
+
+        You are an help desk agent for a ai based company . Please help the user with their query. Use the following details to help the user.
+        
+        Here are the list of services:
+
+        ${JSON.stringify(services)}
+        
+        Here are the list of events : 
+        
+        ${JSON.stringify(events)}
+
+
+        Here are some articles from the company: 
+        ${JSON.stringify(articles)}
+
+
+`   },
       ...body
     ],
   });
@@ -67,25 +86,39 @@ router.get('/uploads/*', ({ request, response }) => {
 
 router.group(() => {
 
-  router.on('/').renderInertia('home')
+  router.get('/', async function ({ inertia }) {
+    const articles =  await Article.query().orderBy('updated_at', 'desc').limit(5).exec()
+    const events = await Event.query().orderBy('updated_at', 'desc').limit(5).exec()
+    const services = await Service.query().orderBy('updated_at', 'desc').limit(5).exec()
+    const galleries = await Gallery.query().orderBy('updated_at', 'desc').limit(5).exec()
+
+    return inertia.render('home', {
+      articles,
+      events,
+      services,
+      galleries
+    })
+  })
   router.on('/about').renderInertia('about')
   router.get('/services', [ServicesController, 'userIndex'])
   router.get('/articles', [ArticlesController, 'userIndex'])
   router.on('/contact').renderInertia('contact')
   router.get('/gallery', [GalleriesController, 'userIndex'])
-  router.on('/events').renderInertia('events')
+  router.get('/events' , [EventsController, 'userIndex'])
   router.post('/contact', [ContactsController, 'store'])
 
 
 
   // Auth Routes
 
-  router.get('/login', [AuthController, 'index'])
+  router.get('/login', [AuthController, 'index']).middleware(middleware.guest())
   router.post('/login', [AuthController, 'store'])
   router.post('/logout', [AuthController, 'destroy'])
 
   router.get('/article/:id', [ArticlesController, 'show'])
-
+  router.get('/events/:id', [EventsController, 'show'])
+  router.get('/service/:id', [ServicesController, 'show'])
+  
 
 
   router.group(() => {

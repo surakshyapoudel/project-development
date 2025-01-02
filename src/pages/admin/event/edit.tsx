@@ -31,7 +31,7 @@ function Edit(props :{
                 e.preventDefault()
                 form.put('/admin/event/'+props.event.id, {
                     onSuccess: () => {
-                        form.reset()
+                       
                     }
                 })
             }}>

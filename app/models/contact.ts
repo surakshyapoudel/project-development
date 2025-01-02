@@ -17,6 +17,21 @@ export default class Contact extends BaseModel {
   @column()
   declare message: string
 
+  @column()
+  declare address: string
+
+  @column()
+  declare companyName: string
+
+  @column()
+  declare country: string
+
+  @column()
+  declare jobTitle: string
+
+  @column()
+  declare jobDetail: string
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

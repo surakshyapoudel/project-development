@@ -116,11 +116,15 @@
   }
 
   .mdEditor blockquote {
-    @apply mt-6 ml-4 border-l-4 pl-6 italic;
+    @apply mt-6 ml-4 mb-6 border-l-4 pl-6 italic;
   }
 
   .mdEditor ul {
     @apply my-6 ml-6 list-disc space-y-1;
+  }
+
+  .mdEditor ol {
+    @apply my-6 ml-6 list-decimal space-y-1;
   }
 
   .mdEditor code {

@@ -25,7 +25,7 @@ function Create({gallery} : {
                 e.preventDefault()
                 form.put('/admin/gallery/'+gallery.id, {
                     onSuccess: () => {
-                        form.reset()
+                        
                     }
                 })
             }}>

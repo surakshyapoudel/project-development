@@ -24,11 +24,7 @@ function Create(props :SharedProps) {
             <h1 className="text-3xl font-bold">Create Article</h1>
             <form className="gap-6 space-y-6 mt-6" onSubmit={(e) => {
                 e.preventDefault()
-                form.post('/admin/article', {
-                    onSuccess: () => {
-                        form.reset()
-                    }
-                })
+                form.post('/admin/article', {})
             }}>
                 <TextInput
                     label="Title"

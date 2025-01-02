@@ -68,6 +68,32 @@ const columnDefs : ColumnDef<Contact>[] = [
                                             </TableRow>
 
                                             <TableRow>
+                                                <TableCell>Address</TableCell>
+                                                <TableCell>{row.original.address}</TableCell>
+                                            </TableRow>
+
+                                            <TableRow>
+                                                <TableCell>Company Name</TableCell>
+                                                <TableCell>{row.original.companyName}</TableCell>
+                                            </TableRow>
+
+                                            <TableRow>
+                                                <TableCell>Country</TableCell>
+                                                <TableCell>{row.original.country}</TableCell>
+                                            </TableRow>
+
+                                            <TableRow>
+                                                <TableCell>Job Title</TableCell>
+                                                <TableCell>{row.original.jobTitle}</TableCell>
+                                            </TableRow>
+
+                                            <TableRow>
+                                                <TableCell>Job Detail</TableCell>
+                                                <TableCell>{row.original.jobDetail}</TableCell>
+                                            </TableRow>
+
+
+                                            <TableRow>
                                                 <TableCell>Created At</TableCell>
                                                 <TableCell>{new Date(row.original.createdAt.toLocaleString()).toDateString()}</TableCell>
                                             </TableRow>

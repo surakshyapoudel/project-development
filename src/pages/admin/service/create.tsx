@@ -24,7 +24,7 @@ function Create() {
                 e.preventDefault()
                 form.post('/admin/service', {
                     onSuccess: () => {
-                        form.reset()
+                       
                     }
                 })
             }}>

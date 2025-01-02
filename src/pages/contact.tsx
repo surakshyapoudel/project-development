@@ -11,12 +11,17 @@ function Contact() {
     name: '',
     email: '',
     message: '',
-    phone: ''
+    phone: '',
+    address: '',
+    companyName: '',
+    country: '',
+    jobTitle: '',
+    jobDetail: ''
   })
 
   return (
     <div className='container mx-auto my-6 px-4'>
-    <h1 className='text-3xl font-bold text-center my-6'>Contact US</h1>
+    <h1 className='text-3xl font-bold text-center my-6'>Contact Us</h1>
 
     <form className='space-y-6' onSubmit={(e) => {
       e.preventDefault()
@@ -55,6 +60,51 @@ function Contact() {
         name='message'
         error={contactForm.errors.message}
         value={contactForm.data.message}
+        onChange={contactForm.setData}
+      />
+
+      <TextInput
+        label='Address'
+        name='address'
+        placeholder='Enter your address'
+        error={contactForm.errors.address}
+        value={contactForm.data.address}
+        onChange={contactForm.setData}
+      />
+
+      <TextInput
+        label='Company Name'
+        name='companyName'
+        placeholder='Enter your company name'
+        error={contactForm.errors.companyName}
+        value={contactForm.data.companyName}
+        onChange={contactForm.setData}
+      />
+
+      <TextInput
+        label='Country'
+        name='country'
+        placeholder='Enter your country'
+        error={contactForm.errors.country}
+        value={contactForm.data.country}
+        onChange={contactForm.setData}
+      />
+
+      <TextInput
+        label='Job Title'
+        name='jobTitle'
+        placeholder='Enter your job title'
+        error={contactForm.errors.jobTitle}
+        value={contactForm.data.jobTitle}
+        onChange={contactForm.setData}
+      />
+
+      <TextInput
+        label='Job Detail'
+        name='jobDetail'
+        placeholder='Enter your job detail'
+        error={contactForm.errors.jobDetail}
+        value={contactForm.data.jobDetail}
         onChange={contactForm.setData}
       />
 

@@ -7,7 +7,25 @@ import app from '@adonisjs/core/services/app'
 import { DateTime } from 'luxon'
 
 export default class EventsController {
+
+    public async userIndex({ inertia, request }: HttpContext) {
+        
+        const pageNumber = getPageNumber(request)
+        const events = await Event.query().orderBy('updated_at', 'desc').paginate(pageNumber, 10)
+
+        return inertia.render('events', {
+            events: getPaginationData(events, '/events')
+        })
+    }
+
+
+
+
     public async index({ inertia  ,request}: HttpContext) {
+
+
+
+
         
         const pageNumber = getPageNumber(request)
         const events = await Event.query().orderBy('updated_at', 'desc').paginate(pageNumber, 10)
@@ -27,7 +45,7 @@ export default class EventsController {
 
         const id = Number(request.param('id'))
         const event = await Event.findOrFail(id)
-        return inertia.render('admin/event/show', {
+        return inertia.render('event/show', {
             event
         })
     }

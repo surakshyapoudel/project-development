@@ -28,7 +28,6 @@ function Edit(props : {
                 e.preventDefault()
                 form.put('/admin/article/'+props.article.id, {
                     onSuccess: () => {
-                        form.reset()
                     }
                 })
             }}>
