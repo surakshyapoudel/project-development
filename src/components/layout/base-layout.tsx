@@ -15,7 +15,7 @@ function Layout(props: BaseLayoutProps) {
       <header className=" w-90 shadow-sm sticky">
         <MyComponent />
         <div className="flex container justify-between items-center p-4 mx-auto h-[70px] ">
-          <Link href="/" className='flex items-center gap-2 font-mediumcleat'>
+          <Link href="/" className="flex items-center gap-2 font-mediumcleat">
             <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Command className="size-4" />
             </div>
@@ -27,17 +27,18 @@ function Layout(props: BaseLayoutProps) {
             <Link href="/">Home</Link>
             <Link href="/about">About</Link>
             <Link href="/services">Services</Link>
+            <Link href="/projects">Portfolio</Link>
             <Link href="/articles">Articles</Link>
             <Link href="/events">Events</Link>
             <Link href="/gallery">Gallery</Link>
           </nav>
 
           <div className="flex gap-4">
-            <Button asChild>
+            {/* <Button asChild>
               <Link href="/login">Login</Link>
-            </Button>
+            </Button> */}
 
-            <Button variant={'secondary'} asChild>
+            <Button asChild>
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
@@ -49,8 +50,15 @@ function Layout(props: BaseLayoutProps) {
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">AI Solutions</h3>
+            <div className='my-4 space-y-6'>
+              <Link href="/" className="flex items-center gap-2 font-mediumcleat">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                  <Command className="size-4" />
+                </div>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-semibold">AI Solutions</span>
+                </div>
+              </Link>
               <p>
                 Pioneering the future of artificial intelligence to solve complex problems and drive
                 innovation across industries.
@@ -99,7 +107,7 @@ function Layout(props: BaseLayoutProps) {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-            <p>&copy; 2023 AI Solutions. All rights reserved.</p>
+            <p>&copy; 2024 AI Solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -11,7 +11,7 @@ export default class EventsController {
     public async userIndex({ inertia, request }: HttpContext) {
         
         const pageNumber = getPageNumber(request)
-        const events = await Event.query().orderBy('updated_at', 'desc').paginate(pageNumber, 10)
+        const events = await Event.query().orderBy('completed', 'asc').paginate(pageNumber, 10)
 
         return inertia.render('events', {
             events: getPaginationData(events, '/events')
@@ -28,7 +28,7 @@ export default class EventsController {
 
         
         const pageNumber = getPageNumber(request)
-        const events = await Event.query().orderBy('updated_at', 'desc').paginate(pageNumber, 10)
+        const events = await Event.query().orderBy('completed', 'asc').paginate(pageNumber, 10)
 
         return inertia.render('admin/event/index', {
             events: getPaginationData(events, '/admin/event')

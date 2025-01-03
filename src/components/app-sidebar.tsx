@@ -5,6 +5,7 @@ import {
   LayoutDashboard,
   LifeBuoy,
   MapPin,
+  Projector,
   Send
 } from "lucide-react"
 import * as React from "react"
@@ -22,6 +23,7 @@ import {
 } from "@/components/ui/sidebar"
 import { SharedProps } from "@adonisjs/inertia/types"
 import { usePage } from "@inertiajs/react"
+import { title } from "process"
 
 const data = {
 
@@ -45,6 +47,11 @@ const data = {
       title: "Messages",
       url: "/admin/contact",
       icon: Send,
+    },
+    {
+      title: "Projects",
+      url: "/admin/project",
+      icon: Projector,
     },
     {
       title: "Services",

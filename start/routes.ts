@@ -32,6 +32,8 @@ import env from './env.js'
 import Service from '#models/service'
 import Article from '#models/article'
 import Gallery from '#models/gallery'
+import ProjectsController from '#controllers/projects_controller'
+import Project from '#models/project'
 
 router.post('/api/chat', async ({ request }) => {
 
@@ -39,6 +41,7 @@ router.post('/api/chat', async ({ request }) => {
   const events = await Event.all()
   const services = await Service.all()
   const articles = await Article.all()
+  const projects = await Project.all()
 
   const res = await openai.chat.completions.create({
     model: "gemini-1.5-flash",
@@ -61,6 +64,8 @@ router.post('/api/chat', async ({ request }) => {
         Here are some articles from the company: 
         ${JSON.stringify(articles)}
 
+        Here are the projects from the company:
+        ${JSON.stringify(projects)}
 
 `   },
       ...body
@@ -91,12 +96,14 @@ router.group(() => {
     const events = await Event.query().orderBy('updated_at', 'desc').limit(5).exec()
     const services = await Service.query().orderBy('updated_at', 'desc').limit(5).exec()
     const galleries = await Gallery.query().orderBy('updated_at', 'desc').limit(5).exec()
+    const projects = await Project.query().orderBy('updated_at', 'desc').limit(3).exec()
 
     return inertia.render('home', {
       articles,
       events,
       services,
-      galleries
+      galleries,
+      projects
     })
   })
   router.on('/about').renderInertia('about')
@@ -106,6 +113,7 @@ router.group(() => {
   router.get('/gallery', [GalleriesController, 'userIndex'])
   router.get('/events' , [EventsController, 'userIndex'])
   router.post('/contact', [ContactsController, 'store'])
+  router.get('/projects', [ProjectsController, 'userIndex'])
 
 
 
@@ -157,6 +165,14 @@ router.group(() => {
     router.put('/gallery/:id', [GalleriesController, 'update']).middleware(middleware.auth())
     router.delete('/gallery/:id', [GalleriesController, 'destroy']).middleware(middleware.auth())
 
+
+    // Projects Routes
+    router.get('/project', [ProjectsController, 'index']).middleware(middleware.auth())
+    router.get('/project/create', [ProjectsController, 'create']).middleware(middleware.auth())
+    router.post('/project', [ProjectsController, 'store']).middleware(middleware.auth())
+    router.get('/project/:id', [ProjectsController, 'edit']).middleware(middleware.auth())
+    router.put('/project/:id', [ProjectsController, 'update']).middleware(middleware.auth())
+    router.delete('/project/:id', [ProjectsController, 'destroy']).middleware(middleware.auth())
 
     // Contacts Routes 
     router.get('/contact', [ContactsController, 'index']).middleware(middleware.auth())

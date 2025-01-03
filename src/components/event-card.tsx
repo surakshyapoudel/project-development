@@ -15,11 +15,14 @@ export function EventCard({ id, title, description, image, date, completed  }: E
             alt={title}
             className="w-full h-full object-cover"
           />
-            {completed && (
+            {completed ? 
               <Badge className="absolute top-2 right-2 bg-green-500">
                 Completed
+              </Badge> : 
+              <Badge className="absolute top-2 right-2 bg-red-500">
+                Upcoming
               </Badge>
-            )}
+            }
           </div>
         </CardHeader>
         <CardContent className="p-4">
