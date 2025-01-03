@@ -14,13 +14,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Head, Link } from '@inertiajs/react'
 
 function Home({
-  events,
+  completedevents,
+  upcomingevents,
   galleries,
   services,
   articles,
   projects,
 }: {
-  events: Event[]
+  upcomingevents: Event[]
+  completedevents: Event[]
   galleries: Gallery[]
   services: Service[]
   projects: Project[]
@@ -131,11 +133,22 @@ function Home({
           </div>
         </section>
         {/* Events Section */}
-        <section className="w-full py-16 bg-gray-100">
+      
+
+        <section className="w-full py-16 bg-gray-50 dark:bg-gray-100">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">Upcoming Events</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-gray-200">
+              Past Events
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {events.slice(0, 2).map((event) => (
+              {completedevents.slice(0, 2).map((event) => (
+                <EventCard key={event.id} {...event} />
+              ))}
+            </div>
+
+            <h2 className="text-3xl font-bold mb-8 mt-10 text-center">Upcoming Events</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {upcomingevents.slice(0, 2).map((event) => (
                 <EventCard key={event.id} {...event} />
               ))}
             </div>

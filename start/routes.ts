@@ -93,14 +93,16 @@ router.group(() => {
 
   router.get('/', async function ({ inertia }) {
     const articles =  await Article.query().orderBy('updated_at', 'desc').limit(5).exec()
-    const events = await Event.query().orderBy('updated_at', 'desc').limit(5).exec()
+    const completedevents = await Event.query().where('completed', true).limit(5).exec()
+    const upcomingevents = await Event.query().where('completed', false).limit(5).exec()
     const services = await Service.query().orderBy('updated_at', 'desc').limit(5).exec()
     const galleries = await Gallery.query().orderBy('updated_at', 'desc').limit(5).exec()
     const projects = await Project.query().orderBy('updated_at', 'desc').limit(3).exec()
 
     return inertia.render('home', {
       articles,
-      events,
+      upcomingevents,
+      completedevents,
       services,
       galleries,
       projects

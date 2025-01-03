@@ -34,7 +34,7 @@ const columnDefs: ColumnDef<Event>[] = [
             return (
                 <div className="flex gap-2">
                     <Button size={"icon"} asChild>
-                        <a target="_blank" href={`/event/${row.original.id}`}>
+                        <a target="_blank" href={`/events/${row.original.id}`}>
                             <Eye />
                         </a>
                     </Button>

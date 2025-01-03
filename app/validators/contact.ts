@@ -11,6 +11,5 @@ export const contactValidator = vine.compile(
     country: vine.string().minLength(5).trim(),
     jobTitle: vine.string().minLength(5).trim(),
     jobDetail: vine.string().minLength(5).trim(),
-
   })
 )

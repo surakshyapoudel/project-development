@@ -10,7 +10,7 @@ export const Flash = () => {
 
   const error = flash.error
   const success = flash.success
-  const message = flash.message
+  // const message = flash.message
 
   useEffect(() => {
     if (success) {
@@ -23,11 +23,11 @@ export const Flash = () => {
         dismissible: true,
       })
     }
-    if (message) {
-      toast.info(message, {
-        dismissible: true,
-      })
-    }
+    // if (message) {
+    //   toast.info(message, {
+    //     dismissible: true,
+    //   })
+    // }
   }, [flash])
 
   return null
