@@ -33,16 +33,15 @@ function Home({
       <Head title="Home" />
       <main className="flex min-h-screen flex-col">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
+        <section className="w-full bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="md:w-1/2 mb-8 md:mb-0">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                  Pioneering AI Solutions for a Smarter Future
+                Empowering Innovation, Shaping the Future.
                 </h1>
                 <p className="text-xl mb-6">
-                  Unlock the power of artificial intelligence to transform your business and drive
-                  innovation.
+               We are an AI company dedicated to driving innovation through cutting-edge technologies.
                 </p>
                 <Button size="lg" variant="secondary" asChild>
                   <Link href="/contact">Get Started</Link>
@@ -50,7 +49,7 @@ function Home({
               </div>
               <div className="md:w-1/2">
                 <img
-                  src="/ai.png"
+                  src="/robot.png"
                   alt="AI technology illustration"
                   className="rounded-lg w-full h-auto"
                 />
@@ -161,7 +160,7 @@ function Home({
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-16 bg-blue-600 text-white">
+        <section className="w-full py-16 bg-green-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business with AI?</h2>
             <p className="text-xl mb-8">

@@ -29,7 +29,7 @@ function About() {
           </div>
           <div className="relative h-64 md:h-full">
             <img
-              src="/signin.webp"
+              src="/login.jpg"
               alt="AI Solutions team working"
               className="rounded-lg"
               width={600}

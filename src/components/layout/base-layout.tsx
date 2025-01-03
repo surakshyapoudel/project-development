@@ -16,8 +16,8 @@ function Layout(props: BaseLayoutProps) {
         <MyComponent />
         <div className="flex container justify-between items-center p-4 mx-auto h-[70px] ">
           <Link href="/" className="flex items-center gap-2 font-mediumcleat">
-            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Command className="size-4" />
+            <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-primary-foreground">
+              <img src="/logo.png" alt="" />
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">AI Solutions</span>
@@ -50,10 +50,10 @@ function Layout(props: BaseLayoutProps) {
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className='my-4 space-y-6'>
+            <div className="my-4 space-y-6">
               <Link href="/" className="flex items-center gap-2 font-mediumcleat">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <Command className="size-4" />
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-primary-foreground">
+                  <img src="/logo.png" alt="" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">AI Solutions</span>

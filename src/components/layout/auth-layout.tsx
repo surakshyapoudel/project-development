@@ -15,8 +15,8 @@ function Layout({ children }: AuthLayoutProps) {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <a href="/" className="flex items-center gap-2 font-medium">
-            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Command className="size-4" />
+            <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-primary-foreground">
+              <img src="/logo.png" alt="" />
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">AI Solutions</span>
@@ -29,7 +29,7 @@ function Layout({ children }: AuthLayoutProps) {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <img
-          src="/signin.webp"
+          src="/login.jpg"
           alt="Image"
           className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
         />
